@@ -35,7 +35,7 @@ time.sleep(5)
 
 #Clica no botão Entrar para começar o login
 button0 = driver.find_element_by_xpath("/html/body/div[1]/section/div/div/div/section/div[1]/button").click()
-time.sleep(15)
+time.sleep(5)
 
 #Pega o campo do login pelo ID e envia o email de acesso.
 username_textbox=driver.find_element_by_id("i0116")
@@ -43,7 +43,7 @@ username_textbox.send_keys(user)
 
 #Clica no botão para avançar pelo ID
 button1 = driver.find_element_by_id("idSIButton9").click()
-time.sleep(10)
+time.sleep(5)
 
 #Pega o campo da senha pelo ID e envia a senha de acesso.
 password=driver.find_element_by_id("i0118")
@@ -52,23 +52,23 @@ password.send_keys(password_user)
 #Clica para efetuar o login no site
 login_attempt = driver.find_element_by_id("idSIButton9")
 login_attempt.submit()
-time.sleep(10)
+time.sleep(5)
 
 #Clica em "Não" na caixa de mensagem que pergunta se quer se manter conectado.
 button2 = driver.find_element_by_id("idBtn_Back").click()
-time.sleep(10)
+time.sleep(5)
 
 #Acessa a diciplina de Python
 button3 = driver.find_element_by_xpath("/html/body/div[1]/section/article[2]/article[2]/div/section[2]/div/div/div/article/div/div[1]/section/header/button").click()
-time.sleep(10)
+time.sleep(5)
 
 #Acessa o tema do trabalho
 button4 = driver.find_element_by_xpath("/html/body/div[1]/section/article[2]/article[2]/section/div/div/div[1]/section/div/div/article/section[3]/div[2]/div[3]/div/section/div[5]/a").click()
-time.sleep(10)
+time.sleep(5)
 
 #Clica no conteudo complementar para efetuar o download do arquivo.
 button5 = driver.find_element_by_xpath("/html/body/div[1]/section/article[2]/article[2]/section/div/div/div[2]/section/div/div/article/section/section/section/div[3]/div[2]/div/section/div/div[1]/button").click()
-time.sleep(10)
+time.sleep(5)
 
 #Fecha o Browser Google Chrome
 driver.quit()
