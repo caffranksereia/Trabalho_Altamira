@@ -74,21 +74,21 @@ time.sleep(10)
 driver.quit()
 
 #Cria o diretório onde iremos salvar o arquivo baixado e verifica se a pasta já existe.
-os.makedirs("./TrabalhoAltamira", exist_ok=False)
+os.makedirs("./TrabalhoAltamira", exist_ok=True)
 
 #Pega o arquivo baixado e move para o diretorio que criado.
 source = r"C:/Users/201801196982/Downloads/combate_pirataria.zip"
-destination = r"C:/TrabalhoAltamira/combate_pirataria.zip"
+destination = r"C:/Users/201801196982/PycharmProjects/pythonProject/combate_pirataria.zip"
 shutil.move(source, destination)
 time.sleep(5)
 
 #Extrai o arquivo baixado e coloca na mesma pasta que criamos
-extrair = zipfile.ZipFile("C:/201801196982/TrabalhoAltamira/combate_pirataria.zip")
-extrair.extractall("C:/TrabalhoAltamira/")
+extrair = zipfile.ZipFile("C:/Users/201801196982/PycharmProjects/pythonProject/combate_pirataria.zip")
+extrair.extractall("C:/Users/201801196982/PycharmProjects/pythonProject")
 extrair.close()
 
 #Leitura do arquivo original
-df = pd.read_csv("C:/TrabalhoAltamira/Tabela_PACP.csv", sep=";")
+df = pd.read_csv("C:/Users/201801196982/PycharmProjects/pythonProject/Tabela_PACP.csv", sep=";")
 
 #Total de cada coluna com quantidade
 qt_un_apreendidas = df["QT_UN_APREENDIDAS"].sum()
