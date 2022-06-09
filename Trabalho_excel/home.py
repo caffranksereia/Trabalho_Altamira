@@ -22,7 +22,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 #Solicita crendencial de acesso
 user = input("Informe o login de acesso:")
-password = input("Informe a senha de acesso:")
+password_user = input("Informe a senha de acesso:")
 
 driver = webdriver.Chrome(ChromeDriverManager().install()) #Inicia o Chrome
 driver.maximize_window() #Maximiza a janela do Chrome
@@ -47,7 +47,7 @@ time.sleep(10)
 
 #Pega o campo da senha pelo ID e envia a senha de acesso.
 password=driver.find_element_by_id("i0118")
-password.send_keys(password)
+password.send_keys(password_user)
 
 #Clica para efetuar o login no site
 login_attempt = driver.find_element_by_id("idSIButton9")
@@ -74,21 +74,21 @@ time.sleep(10)
 driver.quit()
 
 #Cria o diretório onde iremos salvar o arquivo baixado e verifica se a pasta já existe.
-os.makedirs("./TrabalhoAltamira-Vittor", exist_ok=False)
+os.makedirs("./TrabalhoAltamira", exist_ok=False)
 
 #Pega o arquivo baixado e move para o diretorio que criado.
-source = r"C:/Users/Fabio/Downloads/combate_pirataria.zip"
-destination = r"C:/fabio/TrabalhoAltamira/combate_pirataria.zip"
+source = r"C:/Users/201801196982/Downloads/combate_pirataria.zip"
+destination = r"C:/TrabalhoAltamira/combate_pirataria.zip"
 shutil.move(source, destination)
 time.sleep(5)
 
 #Extrai o arquivo baixado e coloca na mesma pasta que criamos
-extrair = zipfile.ZipFile("C:/Fabio/TrabalhoAltamira-Vittor/combate_pirataria.zip")
-extrair.extractall("C:/Fabio/TrabalhoAltamira-Vittor/")
+extrair = zipfile.ZipFile("C:/201801196982/TrabalhoAltamira/combate_pirataria.zip")
+extrair.extractall("C:/TrabalhoAltamira/")
 extrair.close()
 
 #Leitura do arquivo original
-df = pd.read_csv("C:/Fabio/TrabalhoAltamira-Vittor/Tabela_PACP.csv", sep=";")
+df = pd.read_csv("C:/TrabalhoAltamira/Tabela_PACP.csv", sep=";")
 
 #Total de cada coluna com quantidade
 qt_un_apreendidas = df["QT_UN_APREENDIDAS"].sum()
@@ -163,9 +163,7 @@ email_msg["Subject"] = "Trabalho - Paradigmas de Linguagens de Programação em 
 
 menssage = """<p>Olá, boa noite! Tudo bem?</p>
 <p>
-
 <p>Segue o arquivo em anexo conforme solicitado.</p>
-
 </p>
 <p>Atenciosamente,</p>
 <p>Fabio Eduardo</p> &
