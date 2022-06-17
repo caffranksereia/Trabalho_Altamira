@@ -10,28 +10,28 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-from dotenv import dotenv_values
+from dotenv import load_dotenv
 
 
 
-config = dotenv_values('.env')
+load_dotenv()
 USER_LOGIN = os.getenv('LOGIN')
 USER_PASS = os.getenv('PASSWORD')
 SITE = os.getenv('URL')
 
-user = input(USER_LOGIN)
-password_user = input(USER_PASS)
+user = USER_LOGIN
+password_user = USER_PASS
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.maximize_window()
 
-driver.get('SITE')
+driver.get("https://estudante.estacio.br/")
 time.sleep(5)
 
 bt0 = driver.find_element_by_xpath("/html/body/div[1]/section/div/div/div/section/div[1]/button").click()
 time.sleep(15)
 
-username_textbox=driver.find_element_by_id("i0116")
+username_textbox=driver.find_element_by_name("loginfmt")
 username_textbox.send_keys(user)
 
 bt1 = driver.find_element_by_id("idSIButton9").click()
@@ -145,7 +145,7 @@ server.login(user_email, password_email)
 
 email_msg = MIMEMultipart()
 email_msg["From"] = user_email
-email_msg["to"] = "altamira.queiroz@estacio.br"
+email_msg["to"] = ""
 email_msg["Subject"] = "Trabalho - Paradigmas de Linguagens de Programação em Python"
 
 menssage = """<p>Segue em anexo</p>
