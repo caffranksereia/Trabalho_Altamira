@@ -10,15 +10,22 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+from dotenv import dotenv_values
 
 
-user = input("Informe o login de acesso:")
-password_user = input("Informe a senha de acesso:")
+
+config = dotenv_values('.env')
+USER_LOGIN = os.getenv('LOGIN')
+USER_PASS = os.getenv('PASSWORD')
+SITE = os.getenv('URL')
+
+user = input(USER_LOGIN)
+password_user = input(USER_PASS)
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.maximize_window()
 
-driver.get("https://estudante.estacio.br/")
+driver.get('SITE')
 time.sleep(5)
 
 bt0 = driver.find_element_by_xpath("/html/body/div[1]/section/div/div/div/section/div[1]/button").click()
